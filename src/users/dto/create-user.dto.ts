@@ -1,1 +1,3 @@
-export class CreateUserDto {}
+export interface CreateUserDto {
+  age?: number;
+}
