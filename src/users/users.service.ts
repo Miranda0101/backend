@@ -8,16 +8,16 @@ import { InjectModel } from '@nestjs/mongoose';
 @Injectable()
 export class UsersService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
-  // create(createUserDto: CreateUserDto) {
-  //   return 'This action adds a new user';
-  // }
+  create(createUserDto: CreateUserDto) {
+    return 'This action adds a new user';
+  }
 
   async findAll(): Promise<User[]> {
     return this.userModel.find().exec();
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} user`;
+  findOne(email: string) {
+    return this.userModel.findOne({ email: email }).exec();
   }
 
   // update(id: number, updateUserDto: UpdateUserDto) {
