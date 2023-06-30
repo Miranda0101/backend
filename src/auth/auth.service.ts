@@ -13,7 +13,7 @@ export class AuthService {
     // console.log(email, pass);
     const user = await this.userService.findOne(email);
     if (user.password !== pass) {
-      throw new UnauthorizedException();
+      throw new UnauthorizedException('Wrong password. Please try again.');
     }
     // Without JWT
     // const { password, ...result } = user;

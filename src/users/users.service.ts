@@ -20,7 +20,9 @@ export class UsersService {
   async findOne(email: string): Promise<User> {
     const user = await this.userModel.findOne({ email: email }).exec();
     if (!user) {
-      throw new NotFoundException('This email address is not registered.');
+      throw new NotFoundException(
+        'This email address is not registered. Please register first!',
+      );
     }
     return user;
   }
